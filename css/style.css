@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap");
+
+.header {
+  background-color: rgb(8, 4, 66);
+  color: #fff;
+  height: 80px;
+  text-align: center;
+  line-height: 80px;
+  text-transform: uppercase;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgb(224, 220, 220);
+  font-family: "Poppins", sans-serif;
+}
+
+.card__container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 5px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-rows: minmax(250px, auto);
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 80px;
+}
+
+.main {
+  padding-bottom: 10px;
+}
+
+.card {
+  width: 250px;
+  height: 350px;
+  margin: 0 auto;
+  perspective: 1000px;
+}
+
+.card__inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+}
+
+.card__inner:hover {
+  transform: scale(1.08);
+}
+
+.image {
+  width: 250px;
+  height: 350px;
+  background-color: #fff;
+  object-fit: cover;
+  transition: all 300ms;
+  background-size: cover;
+  background-position: center;
+}
+
+.image:hover {
+  opacity: 0.8;
+}
+
+.card__inner.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+.card__face--front {
+  width: 100%;
+  height: 100%;
+}
+
+.card__face--back {
+  padding-bottom: 20px;
+  background-color: #fff;
+  transform: rotateY(180deg);
+}
+
+.card__content {
+  width: 100%;
+  height: 100%;
+}
+
+.card__header {
+  position: relative;
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  row-gap: 10px;
+  font-size: 14px;
+  padding: 20px 20px 20px 20px;
+}
+
+.card__header h2 {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.card__title {
+  font-size: 25px;
+  color: rgb(5, 5, 145);
+  font-weight: 900;
+  margin-bottom: 10px;
+  letter-spacing: 0.2px;
+}
+
+.card__fecha {
+  font-size: 14px;
+  color: firebrick;
+}
+
+.card__description {
+  font-size: 12px;
+  line-height: 0.6cm;
+}
+
+.footer {
+  height: 130px;
+  background-color: rgb(8, 4, 66);
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 130px;
+}
+
+@media (max-width: 515px) {
+  .image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .card {
+    width: 400px;
+    height: 500px;
+  }
+
+  .card__face {
+    border-radius: 0;
+  }
+}
